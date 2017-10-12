@@ -1,0 +1,35 @@
+package fsm;
+
+public class FiniteStateMachine {
+	private states state;
+
+	void start() throws InterruptedException {
+		state = states.first_floor;
+
+		while (true) {
+
+			switch (state) {
+
+			case first_floor:
+				goToFirstFloor();
+				break;
+
+			case second_floor:
+				break;
+
+			}
+		}
+	}
+	
+	void goToFirstFloor() throws InterruptedException {
+		System.out.println("Go to first floor");
+		Thread.sleep(2000);
+		state = states.second_floor;
+	}
+	
+	void goToSecondFloor() throws InterruptedException {
+		System.out.println("Go to second floor");
+		Thread.sleep(3000);
+		state = states.first_floor;
+	}
+}

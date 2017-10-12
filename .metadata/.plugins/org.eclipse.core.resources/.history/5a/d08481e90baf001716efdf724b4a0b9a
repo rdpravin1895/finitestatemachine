@@ -1,0 +1,51 @@
+package fsm;
+
+import java.util.Scanner;
+
+public class FiniteStateMachine {
+	
+	Scanner sc = new Scanner(System.in);
+	
+	private states state;
+
+	void start() throws InterruptedException {
+		state = states.first_floor;
+
+		while (true) {
+
+			switch (state) {
+
+			case first_floor:
+				goToFirstFloor();
+				break;
+
+			case second_floor:
+				goToSecondFloor();
+				break;
+
+			}
+		}
+	}
+
+	void init() {
+		System.out.println("Enter the floor you want to go:");
+		int floorNumber = sc.nextInt();
+		
+	}
+	void goToFirstFloor() throws InterruptedException {
+		
+		System.out.println("Go to first floor");
+		Thread.sleep(2000);
+		System.out.println("Lift called from second floor");
+		state = states.second_floor;
+	}
+
+	void goToSecondFloor() throws InterruptedException {
+		System.out.println("Go to second floor");
+		Thread.sleep(2000);
+		System.out.println("Lift called from second floor");
+		state = states.first_floor;
+		
+	}
+
+}

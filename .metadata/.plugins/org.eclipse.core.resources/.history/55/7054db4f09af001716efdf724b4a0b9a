@@ -1,0 +1,30 @@
+package fsm;
+
+public class FiniteStateMachine {
+	private states state;
+
+	void start() {
+		state = states.first_floor;
+
+		while (true) {
+
+			switch (state) {
+
+			case first_floor:
+				break;
+
+			case second_floor:
+				break;
+
+			}
+		}
+	}
+	
+	void goToFirstFloor() {
+		System.out.println("Go to first floor");
+	}
+	
+	void goToSecondFloor() {
+		System.out.println("Go to second floor");
+	}
+}
